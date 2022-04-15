@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ColorTheme {
     let background = Color("Background")
+    let progressRing = Color("ProgressRing")
 }
 
 

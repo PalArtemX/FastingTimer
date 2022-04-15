@@ -14,10 +14,25 @@ struct HomeView: View {
             Color.colorTheme.background
                 .ignoresSafeArea()
             
-            // MARK: - Content
+            VStack {
+                // MARK: - Headline
+                HeadlineView()
+                
+                // MARK: - ProgressRing
+                ProgressRingView()
+                
+                // MARK: - Start
+                Text("Start")
+                    .opacity(0.7)
+                Text(Date(), format: .dateTime.weekday().hour().minute().second())
+                
+            }
+            
         }
+        .foregroundColor(.white)
     }
 }
+
 
 
 
