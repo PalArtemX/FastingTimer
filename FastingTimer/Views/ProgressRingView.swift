@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProgressRingView: View {
+    @EnvironmentObject var fastingVM: FastingViewModel
     @State private var progress = 0.0
     
     var body: some View {
@@ -34,18 +35,23 @@ struct ProgressRingView: View {
                         .font(.headline)
                         .opacity(0.6)
                     
-                    Text("0:00")
+                    Text(fastingVM.startTime, style: .timer)
                         .font(.title)
                         .fontWeight(.bold)
                     
                 }
                 // MARK: - Remaining Time
                 VStack {
-                    Text("Remaining Time")
-                        .font(.subheadline)
-                        .opacity(0.6)
-                    
-                    Text("0:00")
+                    if !fastingVM.elapsed {
+                        Text("Remaining Time")
+                            .font(.subheadline)
+                            .opacity(0.6)
+                    } else {
+                        Text("Extra Time")
+                            .font(.subheadline)
+                            .opacity(0.6)
+                    }
+                    Text(fastingVM.endTime, style: .timer)
                         .font(.title2)
                         .fontWeight(.bold)
                     
@@ -76,8 +82,10 @@ struct ProgressRingView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ProgressRingView()
+                .environmentObject(FastingViewModel())
                 .previewLayout(.sizeThatFits)
             ProgressRingView()
+                .environmentObject(FastingViewModel())
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
         }

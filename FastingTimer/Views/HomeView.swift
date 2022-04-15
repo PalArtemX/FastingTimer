@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var fastingVM: FastingViewModel
+    
     var body: some View {
         ZStack {
             // MARK: - Background
@@ -21,19 +23,18 @@ struct HomeView: View {
                 // MARK: - ProgressRing
                 ProgressRingView()
                 
-                
                 // MARK: - Time Start and End
                 StartAndEndTimeView()
                 
                 // MARK: - Button
                 Button {
-                    //
+                    fastingVM.toggleFastingState()
                 } label: {
                     // MARK: - Fasting Plan
                     HStack {
-                        Image(systemName: "play.rectangle")
+                        Image(systemName: fastingVM.fastingState == .fasting ? "stop.circle" : "play.circle")
                             .symbolRenderingMode(.hierarchical)
-                        Text("Start")
+                        Text(fastingVM.fastingState == .fasting ? "End Fast" : "Start Fast")
                             .bold()
                     }
                     .font(.title3)
@@ -42,7 +43,7 @@ struct HomeView: View {
                 .padding()
                 .buttonStyle(.borderedProminent)
                 
-
+                
             }
         }
     }
@@ -60,5 +61,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(FastingViewModel())
     }
 }
