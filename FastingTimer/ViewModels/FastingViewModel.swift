@@ -11,8 +11,10 @@ import Foundation
 class FastingViewModel: ObservableObject {
     @Published private(set) var fastingState: FastingState = .notStarted
     @Published private(set) var fastingPlan: FastingPlan = .intermediate
-    
     @Published private(set) var elapsed: Bool = false
+    @Published private(set) var endTime: Date
+    @Published private(set) var elapsedTime: Double = 0.0
+    @Published private(set) var progress: Double = 0.0
     
     @Published private(set) var startTime: Date {
         didSet {
@@ -24,14 +26,14 @@ class FastingViewModel: ObservableObject {
         }
     }
     
-    @Published private(set) var endTime: Date
-    
     var fastingTime: Double {
-        return fastingPlan.fastingPeriod
+        return fastingPlan.fastingPeriod * 60 * 60
     }
     var feedingTime: Double {
-        return 24 - fastingPlan.fastingPeriod
+        return 24 - (fastingPlan.fastingPeriod) * 60 * 60
     }
+    
+    
     
     // MARK: - init
     init() {
@@ -45,16 +47,33 @@ class FastingViewModel: ObservableObject {
         let scheduledTime = calendar.nextDate(after: .now, matching: components, matchingPolicy: .nextTime)!
         
         startTime = scheduledTime
-        endTime = scheduledTime.addingTimeInterval(FastingPlan.intermediate.fastingPeriod)
+        endTime = scheduledTime.addingTimeInterval(FastingPlan.intermediate.fastingPeriod * 60 * 60)
     }
     
-    // MARK: - Functions
     
-    // MARK:
+    // MARK: - Functions
+    // MARK: toggleFastingState
     func toggleFastingState() {
         fastingState = fastingState == .fasting ? .feeding : .fasting
         startTime = Date()
+        elapsedTime = 0.0
         
     }
+    // MARK: track
+    func track() {
+        guard fastingState != .notStarted else { return }
+        
+        if endTime >= Date() {
+            elapsed  = false
+        } else {
+            elapsed = true
+        }
+        
+        elapsedTime += 1
+        
+        let totalTime = fastingState == .fasting ? fastingTime : feedingTime
+        progress = (elapsedTime / totalTime * 100).rounded() / 100
+    }
+    
     
 }

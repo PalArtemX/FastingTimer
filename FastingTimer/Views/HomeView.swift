@@ -28,7 +28,9 @@ struct HomeView: View {
                 
                 // MARK: - Button
                 Button {
-                    fastingVM.toggleFastingState()
+                    withAnimation(.interactiveSpring()) {
+                        fastingVM.toggleFastingState()
+                    }
                 } label: {
                     // MARK: - Fasting Plan
                     HStack {
