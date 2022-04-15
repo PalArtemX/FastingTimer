@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct FastingTimerApp: App {
+    @StateObject var fastingVM = FastingViewModel()
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(fastingVM)
         }
     }
 }

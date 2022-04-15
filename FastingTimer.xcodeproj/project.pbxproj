@@ -15,6 +15,8 @@
 		F8C96F542809BFF600C917F4 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C96F532809BFF600C917F4 /* ProgressRingView.swift */; };
 		F8C96F562809C9C900C917F4 /* HeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C96F552809C9C900C917F4 /* HeadlineView.swift */; };
 		F8C96F582809CC0000C917F4 /* StartAndEndTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C96F572809CC0000C917F4 /* StartAndEndTimeView.swift */; };
+		F8C96F5A2809D3A400C917F4 /* FastingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C96F592809D3A400C917F4 /* FastingViewModel.swift */; };
+		F8C96F5C2809D3E600C917F4 /* FastingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C96F5B2809D3E600C917F4 /* FastingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		F8C96F532809BFF600C917F4 /* ProgressRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
 		F8C96F552809C9C900C917F4 /* HeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineView.swift; sourceTree = "<group>"; };
 		F8C96F572809CC0000C917F4 /* StartAndEndTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAndEndTimeView.swift; sourceTree = "<group>"; };
+		F8C96F592809D3A400C917F4 /* FastingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingViewModel.swift; sourceTree = "<group>"; };
+		F8C96F5B2809D3E600C917F4 /* FastingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		F8C96F4B2809BD6900C917F4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F8C96F5B2809D3E600C917F4 /* FastingState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 		F8C96F4C2809BD7000C917F4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F8C96F592809D3A400C917F4 /* FastingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -181,7 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C96F5A2809D3A400C917F4 /* FastingViewModel.swift in Sources */,
 				F8C96F4F2809BD9500C917F4 /* HomeView.swift in Sources */,
+				F8C96F5C2809D3E600C917F4 /* FastingState.swift in Sources */,
 				F8C96F542809BFF600C917F4 /* ProgressRingView.swift in Sources */,
 				F8C96F3E2809BD5800C917F4 /* FastingTimerApp.swift in Sources */,
 				F8C96F562809C9C900C917F4 /* HeadlineView.swift in Sources */,
