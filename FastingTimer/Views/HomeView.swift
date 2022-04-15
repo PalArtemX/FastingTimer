@@ -14,22 +14,37 @@ struct HomeView: View {
             Color.colorTheme.background
                 .ignoresSafeArea()
             
-            VStack {
+            VStack(spacing: 50) {
                 // MARK: - Headline
                 HeadlineView()
                 
                 // MARK: - ProgressRing
                 ProgressRingView()
                 
-                // MARK: - Start
-                Text("Start")
-                    .opacity(0.7)
-                Text(Date(), format: .dateTime.weekday().hour().minute().second())
                 
+                // MARK: - Time Start and End
+                StartAndEndTimeView()
+                
+                // MARK: - Button
+                Button {
+                    //
+                } label: {
+                    // MARK: - Fasting Plan
+                    HStack {
+                        Image(systemName: "play.rectangle")
+                            .symbolRenderingMode(.hierarchical)
+                        Text("Start")
+                            .bold()
+                    }
+                    .font(.title3)
+                    .padding(.horizontal)
+                }
+                .padding()
+                .buttonStyle(.borderedProminent)
+                
+
             }
-            
         }
-        .foregroundColor(.white)
     }
 }
 

@@ -16,14 +16,18 @@ struct HeadlineView: View {
                 .foregroundColor(.white)
             
             // MARK: - Fasting Plan
-            Text("16:8")
-                .fontWeight(.bold)
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding(.horizontal)
-                .padding(.vertical, 5)
-                .background(.ultraThinMaterial)
-                .cornerRadius(15)
+            HStack {
+                Image(systemName: "timer")
+                    .symbolRenderingMode(.hierarchical)
+                Text("16:8")
+                    .fontWeight(.bold)
+            }
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding(.horizontal)
+            .padding(.vertical, 5)
+            .background(.ultraThinMaterial)
+            .cornerRadius(15)
         }
     }
 }
