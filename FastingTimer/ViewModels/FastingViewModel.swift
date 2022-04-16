@@ -27,10 +27,10 @@ class FastingViewModel: ObservableObject {
     }
     
     var fastingTime: Double {
-        return fastingPlan.fastingPeriod * 60 * 60
+        return fastingPlan.fastingPeriod * 60 // FIXME: * 60
     }
     var feedingTime: Double {
-        return 24 - (fastingPlan.fastingPeriod) * 60 * 60
+        return 24 - (fastingPlan.fastingPeriod) * 60 // FIXME: * 60
     }
     
     
@@ -47,7 +47,7 @@ class FastingViewModel: ObservableObject {
         let scheduledTime = calendar.nextDate(after: .now, matching: components, matchingPolicy: .nextTime)!
         
         startTime = scheduledTime
-        endTime = scheduledTime.addingTimeInterval(FastingPlan.intermediate.fastingPeriod * 60 * 60)
+        endTime = scheduledTime.addingTimeInterval(FastingPlan.intermediate.fastingPeriod * 60) // FIXME: * 60)
     }
     
     
